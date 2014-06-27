@@ -2,6 +2,12 @@
 
 ###Program 1
 
+Fastq files contain phred scale (-10 log<sub>10</sub>) base quality scores that are estimates of base quality. Before using fastq reads you should evaluate read quality (base quality, number of reads, check for tags, etc). Prinseq is a progam to check read quality or to clean reads to remove low quality bases 
+
+```
+USAGE: perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl -verbose -fastq [fastq file] -graph_data [output_name.gd]  -out_good null -out_bad null
+```
+
 ###Problem 2
 
 During class we learned about SAM sequence alignment format files and BAM the binary version of the same thing. Samtools is a popular bioinformatics package with many commands that manipulate SAM and BAM files.
