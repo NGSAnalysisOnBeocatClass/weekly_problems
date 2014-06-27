@@ -2,7 +2,7 @@
 
 ###Program 1
 
-###Program 2
+###Problem 2
 
 During class we learned about SAM sequence alignment format files and BAM the binary version of the same thing. Samtools is a popular bioinformatics package with many commands that manipulate SAM and BAM files.
 
@@ -54,7 +54,7 @@ Below I have added the `S` option (aka parameter) to the `samtools view` command
 
 /homes/bioinfo/bioinfo_software/samtools/samtools flagstat [test_rmdup.bam]
 ```
-## Code challenge 2 questions:
+## Problem 2 questions:
 
 For this code challenge pipe these four commands together and report some values from the flagstat summary.
 
