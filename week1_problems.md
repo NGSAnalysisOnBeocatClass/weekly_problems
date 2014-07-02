@@ -132,7 +132,7 @@ Below is a typical usage statement for aligning single-end reads with Bowtie2 to
 "Run your own command to generate a SAM file of the reads aligned to your indexed genome in your ~/hw1 directory"
 ```
 
-###Problem 2
+###Step 5: Pipes and filters with samtools 
 
 During class we learned about SAM sequence alignment format files and BAM the binary version of the same thing. Samtools is a popular bioinformatics package with many commands that manipulate SAM and BAM files.
 
@@ -184,12 +184,8 @@ Below I have added the `S` option (aka parameter) to the `samtools view` command
 
 /homes/bioinfo/bioinfo_software/samtools/samtools flagstat [test_rmdup.bam]
 ```
-## Problem 2 questions:
 
-For this code challenge pipe these four commands together and report some values from the flagstat summary.
+```javascript
+"Run your own piped command to generate a flagstat summary of your alignments"
+```
 
-Percent of reads that mapped: 
-
-Percent of reads that were properly paired: 
-
-What was your piped command: 
