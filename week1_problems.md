@@ -26,11 +26,11 @@ What `wget` command did you type to download the reads?
 
 What fastq-dump command did you type to decompress the reads?
 
-###Quality check your data
+### Step 2 : Quality check your data
 
-Fastq files contain phred scale (-10 log<sub>10</sub>) base quality scores that are estimates of base quality. Before using fastq reads you should evaluate read quality (base quality, number of reads, check for tags, etc). Prinseq is a progam to check read quality or to clean reads to remove low quality bases. Read more about checking read quality and Prinseq at http://prinseq.sourceforge.net/manual.html.
+Fastq files contain phred scale (-10 log<sub>10</sub>) base quality scores that are estimates of base quality. Before using fastq reads you should evaluate read quality (base quality, number of reads, check for tags, etc). Prinseq is a progam written in Perl to check read quality or to clean reads to remove low quality bases. Read more about checking read quality and Prinseq at http://prinseq.sourceforge.net/manual.html.
 
-Below is the typical usage statement to quality check single-end reads. 
+Below is the typical usage statement to quality check single-end reads. You will notice that commands in the prinseq manual and these usage statments start with `perl`. One way to run programs is to specify the interpreter (in this case `perl`) and then call the program (in this case `/homes/bioinfo/bioinfo_software/prinseq-lite.pl` and `/homes/bioinfo/bioinfo_software/prinseq-graphs.pl`).
 
 ```
 USAGE: 
@@ -39,8 +39,9 @@ perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl -verbose -fastq [fastq file
 
 perl /homes/bioinfo/bioinfo_software/prinseq-graphs.pl -verbose -i [output_name_from_the_last_step.gd] -html_all
 ```
+Run your own commands to generate read quality graphs.
 
-To generate a help menu for either prinseq-lite.pl or prinseq-graph.pl type:
+If you would like to generate a help menu for either prinseq-lite.pl or prinseq-graph.pl type:
 
 ```
 perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl -help
@@ -48,9 +49,62 @@ perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl -help
 perl /homes/bioinfo/bioinfo_software/prinseq-graphs.pl
 ```
 
-The final graphs of read quality should be at `~/hw1/SRR1363869.fastq`. 
+The final graphs of read quality should be at `~/hw1/` and have the file extension `.html`. You can download this file from Beocat and veiw it in a web browser. 
 
-This will generate a `.gd` file that you can upload to http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi?report=1 to view to sequence quality graphs. Use the prinseq manual to evaluate your results http://prinseq.sourceforge.net/manual.html.
+Use the prinseq manual to evaluate your results http://prinseq.sourceforge.net/manual.html.
+
+###Step 3: Index your genome
+
+bowtie2-build is a program to index a fasta file so that reads can be aligned to it quickly. You can read a detailed list of parameter options for bowtie2-build by typing `/homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2-build -h`.
+
+Below is the Bowtie2 usage statement with definitions from the help menu:
+
+```
+Usage: bowtie2-build [options]* <reference_in> <bt2_index_base>
+    reference_in            comma-separated list of files with ref sequences
+    bt2_index_base          write .bt2 data to files with this dir/basename
+```
+
+Below is a typical usage statement for building an index file of your reference fasta and then aligning single-end reads with bowtie2-build on Beocat:
+
+```
+USAGE: /homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2-build [genome fasta file] [index files basename with no file extension]
+```
+Run your own commands to generate an index of your fasta genome.
+
+###Step 4: Map your reads to the indexed genome
+
+Bowtie2 is a program to map or align reads to a reference. Bowtie2 outputs SAM format alignment files. You can read a detailed list of parameter options for Bowtie2 by typing `/homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2 -h` or by visiting their manual http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml.
+
+Below is the Bowtie2 usage statement with definitions from the help menu:
+
+```
+Usage:
+  bowtie2 [options]* -x <bt2-idx> {-1 <m1> -2 <m2> | -U <r>} [-S <sam>]
+
+  <bt2-idx>  Index filename prefix (minus trailing .X.bt2).
+             NOTE: Bowtie 1 and Bowtie 2 indexes are not compatible.
+  <m1>       Files with #1 mates, paired with files in <m2>.
+             Could be gzip'ed (extension: .gz) or bzip2'ed (extension: .bz2).
+  <m2>       Files with #2 mates, paired with files in <m1>.
+             Could be gzip'ed (extension: .gz) or bzip2'ed (extension: .bz2).
+  <r>        Files with unpaired reads.
+             Could be gzip'ed (extension: .gz) or bzip2'ed (extension: .bz2).
+  <sam>      File for SAM output (default: stdout)
+
+  <m1>, <m2>, <r> can be comma-separated lists (no whitespace) and can be
+  specified many times.  E.g. '-U file1.fq,file2.fq -U file3.fq'.
+  
+```
+
+Below is a typical usage statement for aligning single-end reads with Bowtie2 to your indexed genome on Beocat:
+
+```
+/homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2  -q -x [index files basename with no file extension] -U [fastq file] -S [output sam file ending in .sam]
+```
+
+Run your own commands to generate a SAM file of the reads aligned to your indexed genome.
+
 
 ###Problem 2
 
