@@ -1,18 +1,26 @@
 ##Unix shell basics
 
-### Download your data
+The goal of this weeks problem is to use what you've learned about understanding usage statements, reading manuals/help menus, identifying NGS file extensions and writting commands to run programs that may be new to you. Make use of the help menus, the Github FAQ pages and the class google+ group while you work. 
 
-NCBI hosts a FTP that you can use to download genomes, transcriptomes, blast databases, even the raw reads that were used in papers. Visit the FTP at ftp://ftp.ncbi.nlm.nih.gov. Read about how to use `wget` to download directly from an FTP at https://github.com/i5K-KINBRE-script-share/FAQ/blob/master/GetRawData.md. At the bottom of the "Download your data to Beocat" FAQ page read about how to decompress short read archieve (`.sra`) files.
+You will download a bacterial genome as well as single-end illumina reads from RNA. Read quality will be checked. Reads will be aligned to the genome. Then summary statistics describing the alignment will be generated.
 
-Using your knowledge of file extensions and the `wget` command download a copy of the _E. coli_ genome for strain K-12 substrain MG1655 to your `~/classwork` directory. From ftp://ftp.ncbi.nlm.nih.gov/genomes/Bacteria/Escherichia_coli_K_12_substr__MG1655_uid57779/. 
+### Step 1: Download your data
+
+NCBI hosts a FTP that you can use to download genomes, transcriptomes, blast databases or even the raw reads that were used in papers. Visit the FTP at ftp://ftp.ncbi.nlm.nih.gov. Read about how to use `wget` to download directly from an FTP at https://github.com/i5K-KINBRE-script-share/FAQ/blob/master/GetRawData.md or by using the `man` program.
+
+Creat a directory named `hw1` in your home directory.
+
+Using your knowledge of file extensions and the `wget` command download a copy of the _E. coli_ genome for strain K-12 substrain MG1655 to your `~/hw1` directory. The genome fasta file is one of the files found at  ftp://ftp.ncbi.nlm.nih.gov/genomes/Bacteria/Escherichia_coli_K_12_substr__MG1655_uid57779/. 
 
 What `wget` command did you type to download the genome? 
 
 What is the filename of the genome? 
 
-**Hint: This directory has no `README` file to tell you which files are which. This is poor form but you will see this kind of thing often. You have to use your knowledge of NGS data file extensions to find the genome fasta file.**
+**Hint: The `Escherichia_coli_K_12_substr__MG1655_uid57779` directory has no `README` file to tell you which files are which. This is poor form but you will see this kind of thing often. You have to use your knowledge of NGS data file extensions to find the genome fasta file. If you right-click (control-click on Macs) on the fasta file you can copy the full  URL.**
 
-Download illumina RNA reads from ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR136/SRR1363869/SRR1363869.sra. 
+Next download illumina RNA reads from this URL ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR136/SRR1363869/SRR1363869.sra. 
+
+Read about how to decompress short read archieve (`.sra`) files at the bottom of https://github.com/i5K-KINBRE-script-share/FAQ/blob/master/GetRawData.md.
 
 What `wget` command did you type to download the reads? 
 
@@ -20,13 +28,28 @@ What fastq-dump command did you type to decompress the reads?
 
 ###Quality check your data
 
-Fastq files contain phred scale (-10 log<sub>10</sub>) base quality scores that are estimates of base quality. Before using fastq reads you should evaluate read quality (base quality, number of reads, check for tags, etc). Prinseq is a progam to check read quality or to clean reads to remove low quality bases. Read more about checking read quality and Prinseq at http://prinseq.sourceforge.net/manual.html. Read recommended values to use to trim at http://prinseq.sourceforge.net/Preprocessing_454_SFF_chart.pdf. 
+Fastq files contain phred scale (-10 log<sub>10</sub>) base quality scores that are estimates of base quality. Before using fastq reads you should evaluate read quality (base quality, number of reads, check for tags, etc). Prinseq is a progam to check read quality or to clean reads to remove low quality bases. Read more about checking read quality and Prinseq at http://prinseq.sourceforge.net/manual.html.
 
-Below is the typical usage statement to check read quality. 
+Below is the typical usage statement to quality check single-end reads. 
 
 ```
-USAGE: perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl -verbose -fastq [fastq file] -graph_data [output_name.gd]  -out_good null -out_bad null
+USAGE: 
+
+perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl -verbose -fastq [fastq file] -graph_data [output_name.gd]  -out_good null -out_bad null
+
+perl /homes/bioinfo/bioinfo_software/prinseq-graphs.pl -verbose -i [output_name_from_the_last_step.gd] -html_all
 ```
+
+To generate a help menu for either prinseq-lite.pl or prinseq-graph.pl type:
+
+```
+perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl -help
+
+perl /homes/bioinfo/bioinfo_software/prinseq-graphs.pl
+```
+
+The final graphs of read quality should be at `~/hw1/SRR1363869.fastq`. 
+
 This will generate a `.gd` file that you can upload to http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi?report=1 to view to sequence quality graphs. Use the prinseq manual to evaluate your results http://prinseq.sourceforge.net/manual.html.
 
 ###Problem 2
