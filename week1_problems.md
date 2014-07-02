@@ -1,6 +1,6 @@
 ##Unix shell basics
 
-The goal of this weeks problem is to use what you've learned about understanding usage statements, reading manuals/help menus, identifying NGS file extensions and writting commands to run programs that may be new to you. Make use of the help menus, the Github FAQ pages and the class google+ group while you work. 
+The goal of this week's problem is to use what you've learned about understanding usage statements, reading manuals/help menus, identifying NGS file extensions and writting commands to run programs that may be new to you. Make use of the help menus, the Github FAQ pages and the class google+ group while you work. 
 
 You will download a bacterial genome as well as single-end illumina reads from RNA. Read quality will be checked. Reads will be aligned to the genome. Then summary statistics describing the alignment will be generated.
 
