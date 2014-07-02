@@ -12,6 +12,10 @@ Creat a directory named `hw1` in your home directory.
 
 Using your knowledge of file extensions and the `wget` command download a copy of the _E. coli_ genome for strain K-12 substrain MG1655 to your `~/hw1` directory. The genome fasta file is one of the files found at  ftp://ftp.ncbi.nlm.nih.gov/genomes/Bacteria/Escherichia_coli_K_12_substr__MG1655_uid57779/. 
 
+```javascript
+"Run your own commands to download the genome fasta file to your ~/hw1 directory"
+```
+
 What `wget` command did you type to download the genome? 
 
 What is the filename of the genome? 
