@@ -4,6 +4,12 @@ The goal of this weeks problem is to use what you've learned about understanding
 
 You will download a bacterial genome as well as single-end illumina reads from RNA. Read quality will be checked. Reads will be aligned to the genome. Then summary statistics describing the alignment will be generated.
 
+###RECORD ALL COMMANDS THAT YOU RUN IN A TEXT FILE USING TEXTWRANGLER OR NOTEPAD++ AS THE EDITOR. UPLOAD THIS TO KSOL WHEN YOU HAVE COMPLETED THE ASSIGNMENT. YOU WILL BE GRADED ON THIS PLAIN TEXT FILE. YOU WILL KNOW WHEN YOU HAVE A COMMAND TO WRITE AND RUN WHEN YOU SEE AN INSTRUCTION IN RED TEXT LIKE THE ONE BELOW:
+
+```javascript
+"Run your own command to ..."
+```
+
 ### Step 1: Download your data
 
 NCBI hosts a FTP that you can use to download genomes, transcriptomes, blast databases or even the raw reads that were used in papers. Visit the FTP at ftp://ftp.ncbi.nlm.nih.gov. Read about how to use `wget` to download directly from an FTP at https://github.com/i5K-KINBRE-script-share/FAQ/blob/master/GetRawData.md or by using the `man` program.
@@ -13,7 +19,7 @@ Creat a directory named `hw1` in your home directory.
 Using your knowledge of file extensions and the `wget` command download a copy of the _E. coli_ genome for strain K-12 substrain MG1655 to your `~/hw1` directory. The genome fasta file is one of the files found at  ftp://ftp.ncbi.nlm.nih.gov/genomes/Bacteria/Escherichia_coli_K_12_substr__MG1655_uid57779/. 
 
 ```javascript
-"Run your own commands to download the genome fasta file to your ~/hw1 directory"
+"Run your own command to download the genome fasta file to your ~/hw1 directory"
 ```
 
 What `wget` command did you type to download the genome? 
