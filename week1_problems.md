@@ -46,7 +46,7 @@ If you would like to generate a help menu for either prinseq-lite.pl or prinseq-
 ```
 perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl -help
 
-perl /homes/bioinfo/bioinfo_software/prinseq-graphs.pl
+perl /homes/bioinfo/bioinfo_software/prinseq-graphs.pl -help
 ```
 
 The final graphs of read quality should be at `~/hw1/` and have the file extension `.html`. You can download this file from Beocat and veiw it in a web browser. 
