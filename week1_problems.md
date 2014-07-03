@@ -125,7 +125,7 @@ Usage:
 Below is a typical usage statement for aligning single-end reads with Bowtie2 to your indexed genome on Beocat:
 
 ```
-/homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2  -q -x [index files basename with no file extension] -U [fastq file] -S [output sam file ending in .sam]
+/homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2  -q -x [index files' basename with no file extension] -U [fastq file] -S [output sam file ending in .sam]
 ```
 
 ```javascript
