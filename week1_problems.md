@@ -188,4 +188,3 @@ Below I have added the `S` option (aka parameter) to the `samtools view` command
 ```javascript
 "Run your own piped command that completes all four steps above to generate a flagstat summary of your alignments"
 ```
-
