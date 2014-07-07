@@ -12,7 +12,7 @@ You will download a bacterial genome as well as single-end illumina reads from R
 
 ### Step 1: Download your data
 
-NCBI hosts a FTP that you can use to download genomes, transcriptomes, blast databases or even the raw reads that were used in papers. Visit the FTP at ftp://ftp.ncbi.nlm.nih.gov. Read about how to use `wget` to download directly from an FTP at https://github.com/i5K-KINBRE-script-share/FAQ/blob/master/GetRawData.md or by using the `man` program.
+NCBI hosts a FTP that you can use to download genomes, transcriptomes, blast databases or even the raw reads that were used in papers. Visit the FTP at ftp://ftp.ncbi.nlm.nih.gov. Read about how to use `wget` to download directly from an FTP at https://github.com/i5K-KINBRE-script-share/FAQ/blob/master/GetRawData.md or by using the `man` program. **Remember when reading manuals text that is bracketed with square brakets `[ ]` is optional and diamond brakets `< >` represents user specified input (e.g. a filename)**.
 
 ```javascript
 "Run your own command to create a directory named `hw1` in your home directory."
@@ -54,7 +54,7 @@ perl /homes/bioinfo/bioinfo_software/prinseq-graphs.pl -help
 Below is the typical usage statement to quality check single-end reads. You will notice that commands in the prinseq manual and these usage statments start with `perl`. One way to run programs is to specify the interpreter (in this case `perl`) and then call the program (in this case `/homes/bioinfo/bioinfo_software/prinseq-lite.pl` and `/homes/bioinfo/bioinfo_software/prinseq-graphs.pl`).
 
 ```
-USAGE: perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl -verbose -fastq [fastq file] -graph_data -out_good null -out_bad null
+USAGE: perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl [-verbose] -fastq <fastq file> -graph_data -out_good null -out_bad null
 ```
 
 ```javascript
@@ -64,7 +64,7 @@ USAGE: perl /homes/bioinfo/bioinfo_software/prinseq-lite.pl -verbose -fastq [fas
 Below is the typical usage statement to create `.html` graphs of your read quality on Beocat. The -i flag stands for input. Your last command created a file with the same fullpath as your fastq file with the extension `.gd`. List your `~/hw1` directory to see this file. This is the input file you should specify for the `-i` flag.
 
 ```
-USAGE: perl /homes/bioinfo/bioinfo_software/prinseq-graphs.pl -verbose -i [fastq_file.gd] -html_all
+USAGE: perl /homes/bioinfo/bioinfo_software/prinseq-graphs.pl [-verbose] -i <fastq_file.gd> -html_all
 ```
 
 ```javascript
@@ -90,7 +90,7 @@ Usage: bowtie2-build [options]* <reference_in> <bt2_index_base>
 Below is a typical usage statement for building an index file of your reference fasta and then aligning single-end reads with bowtie2-build on Beocat:
 
 ```
-USAGE: /homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2-build [genome fasta file] [index files' basename with no file extension]
+USAGE: /homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2-build <genome fasta file> <index files' basename with no file extension>
 ```
 
 ```javascript
@@ -125,7 +125,7 @@ Usage:
 Below is a typical usage statement for aligning single-end reads with Bowtie2 to your indexed genome on Beocat:
 
 ```
-/homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2  -q -x [index files' basename with no file extension] -U [fastq file] -S [output sam file ending in .sam]
+/homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2  -q -x <index files' basename with no file extension> -U <fastq file> [-S <output sam file ending in .sam>]
 ```
 
 ```javascript
@@ -136,7 +136,7 @@ Below is a typical usage statement for aligning single-end reads with Bowtie2 to
 
 During class we learned about SAM sequence alignment format files and BAM the binary version of the same thing. Samtools is a popular bioinformatics package with many commands that manipulate SAM and BAM files.
 
-Many samtools commands are tailored to work with SAM/BAM format files but they work like Unix commands (e.g. they can be joined using `|` to avoid printing uneeded intermediate files) and to speed up small jobs. **When piping a workflow for samtools commands use `-` in place of input or output files to indicate to read from standard in or to write to standard out.** It is better not to use pipes on extremely large Bam or Sam files. **Text that is bracketed with square brakets ([ ]) or diamond brakets (< >) represents user specified input**.
+Many samtools commands are tailored to work with SAM/BAM format files but they work like Unix commands (e.g. they can be joined using `|` to avoid printing uneeded intermediate files) and to speed up small jobs. **When piping a workflow for samtools commands use `-` in place of input or output files to indicate to read from standard in or to write to standard out.** It is better not to use pipes on extremely large Bam or Sam files. **Text that is bracketed with square brakets `[ ]` is optional and diamond brakets `< >` represents user specified input (e.g. a filename)**.
 
 Here would be typical usage:
 
