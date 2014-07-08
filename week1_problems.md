@@ -39,7 +39,17 @@ Read about how to decompress short read archieve (`.sra`) files at the bottom of
 "Run your own command using fastq-dump to download the .sra file to your ~/hw1 directory"
 ```
 
-### Step 2 : Quality check your data
+### Step 2: Subsample data for the class
+
+Because each fastq sequence is 4 lines long we will subsample our data so that we have a smaller sample dataset for our classwork.
+
+Run a command using the `head` program with the flag `-400` to take the first 100 fastq sequences from the fastq file you downloaded and unpacked durring step 1 and rename this file to be in the `~/hw1` directory but include `_sub` in the filename.
+
+```javascript
+"Run your own command using head to sub-sample your reads"
+```
+
+### Step 3 : Quality check your data
 
 Fastq files contain phred scale (-10 log<sub>10</sub>) base quality scores that are estimates of base quality. Before using fastq reads you should evaluate read quality (base quality, number of reads, check for tags, etc). Prinseq is a progam written in Perl to check read quality or to clean reads to remove low quality bases. Read more about checking read quality and Prinseq at http://prinseq.sourceforge.net/manual.html.
 
@@ -68,14 +78,14 @@ USAGE: perl /homes/bioinfo/bioinfo_software/prinseq-graphs.pl [-verbose] -i <fas
 ```
 
 ```javascript
-"Run your own commands to generate read quality graphs in your ~/hw1 directory"
+"Run your own commands to generate read quality graphs for your sub sampled fastq reads in your ~/hw1 directory"
 ```
 
 The final graphs of read quality should be at `~/hw1/` and have the file extension `.html`. You can download this file from Beocat and veiw it in a web browser. 
 
 Use the prinseq manual to evaluate your results http://prinseq.sourceforge.net/manual.html.
 
-###Step 3: Index your genome
+###Step 4: Index your genome
 
 `bowtie2-build` is a program to index a fasta file so that reads can be aligned to it quickly. You can read a detailed list of parameter options for bowtie2-build by typing `/homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2-build -h`.
 
@@ -97,7 +107,7 @@ USAGE: /homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2-build <genome fasta
 "Run your own command to generate an index of your fasta genome in your ~/hw1 directory"
 ```
 
-###Step 4: Map your reads to the indexed genome
+###Step 5: Map your reads to the indexed genome
 
 `bowtie2` is a program to map or align reads to a reference. `bowtie2` outputs `.sam` format alignment files. You can read a detailed list of parameter options for Bowtie2 by typing `/homes/bioinfo/bioinfo_software/bowtie2-2.1.0/bowtie2 -h` or by visiting their manual http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml.
 
@@ -129,10 +139,10 @@ Below is a typical usage statement for aligning single-end reads with Bowtie2 to
 ```
 
 ```javascript
-"Run your own command to generate a SAM file of the reads aligned to your indexed genome in your ~/hw1 directory"
+"Run your own command to generate a SAM file of the sub-sampled fastq reads aligned to your indexed genome in your ~/hw1 directory"
 ```
 
-###Step 5: Pipes and filters with samtools 
+###Step 6: Pipes and filters with samtools 
 
 During class we learned about SAM sequence alignment format files and BAM the binary version of the same thing. Samtools is a popular bioinformatics package with many commands that manipulate SAM and BAM files.
 
