@@ -1,4 +1,4 @@
-##Assignment 2: Parse a GFF3 file
+##Problem: Parse a GFF3 file
 
 One of the things that Perl programs can do is to parse text files and extract the information that your lab is interested in. This can save you time attempting to manually calculate summaries. Say for example that you have a large tab delimited text file with all annotations of your genome (GFF3 file format). You want to report the average length of features in an article describing your genome. The start and stop coordinates of each individual feature are feilds in the GFF3 format. The "type" of feature is also a feild for each individual feature.
 
