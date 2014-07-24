@@ -25,8 +25,14 @@ unless (/^#/)
 }
 ```
 
-Process this data file to print out the following data:
+##Process this data file to print out the following data:
+
 Average gene size
+
 Average Exon (aka CDS) size
+
 Average three_prime_UTR size
+
 Average five_prime_UTR size
+
+##Upload your Perl script to KSOL with the output at the bottom commented out
