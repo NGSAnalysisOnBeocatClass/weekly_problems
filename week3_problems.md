@@ -1,8 +1,8 @@
-Assignment 2: Parse a GFF3 file
+##Assignment 2: Parse a GFF3 file
 
-One of the things that Perl programs can do is to parse text files and extract the information that your lab is interested in.
+One of the things that Perl programs can do is to parse text files and extract the information that your lab is interested in. This can save you time attempting to manually calculate summaries. Say for example that you have a large tab delimited text file with all annotations of your genome (GFF3 file format). You want to report the average length of features in an article describing your genome. The start and stop coordinates of each individual feature are feilds in the GFF3 format. The "type" of feature is also a feild for each individual feature.
 
-Download the GFF3 formatted file for the Mimulus genome. GFF3 format, or gene feature format, is a way to describe features in a genome. Each line of a GFF3 formatted file contains a single feature found in a locus.
+Download the GFF3 formatted file for the [Mimulus genome](https://docs.google.com/file/d/0B_FK3mkgo1L0azFIRGxhVHpnaGs/edit). GFF3 format, or gene feature format, is a way to describe features in a genome. Each line of a GFF3 formatted file contains a single feature found in a locus.
 
 GFF3 format is described here:  http://www.sequenceontology.org/gff3.shtml
 
@@ -16,7 +16,14 @@ scaffold_1 phytozome9_0 CDS 4130504 4131139 . - 0 ID=PAC:17689354.CDS.2;Parent=P
 scaffold_1 phytozome9_0 CDS 4130164 4130407 . - 0 
 ```
 
-Write a script that takes this GFF3 file and prints out ONLY the lines containing genes and the size of the gene. 
+When processing this type of file you should skip commented lines. In a while loop anything within the following conditional loop will only happen if the line is not a comment:
+
+```
+unless (/^#/) 
+{
+	 do something...
+}
+```
 
 Process this data file to print out the following data:
 Average gene size
