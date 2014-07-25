@@ -12,7 +12,7 @@ In other words, process a fasta file and count the lengths of all the lines that
 
 1) create and edit a script called ~/scripts/N50.pl
 
-2) Within N50.pl make an array of contig lengths (@lengths) as you read in lines of the fasta (see line 68 for details)
+2) Within N50.pl make an array of contig lengths (@lengths) as you read in lines of the fasta 
 
 3) calculate the total length of the assembly ($total_length)
 
@@ -56,6 +56,14 @@ Be careful in that this is a "greedy" match, so set up your logic so that it mat
 
 Don't forget that you can match fasta ID lines with `/^>/ of $var=~m/^>/`
 
+**creating @lengths**
+Finally, to get the length of a string, you can use the function `length()`;
+Note that length will return the length of a sequence INCLUDING THE \n. To remove this and other space characters, process DNA seqeunce data with the regex `s/\s//g`
+
+This will remove all whitespace and prevent length from reporting `\n` as part of the sequence length.
+
+**Sorting @lengths**
+
 Also, to sort an array you can use this code
 
 ```
@@ -67,10 +75,6 @@ Note that this is sorting largest to smallest
 
 You can learn more about sort here http://perlmaven.com/sorting-arrays-in-perl
 
-Finally, to get the length of a string, you can use the function `length()`;
-Note that length will return the length of a sequence INCLUDING THE \n. To remove this and other space characters, process DNA seqeunce data with the regex `s/\s//g`
-
-This will remove all whitespace and prevent length from reporting `\n` as part of the sequence length.
 
 You should get the following number, which is the N50 for Mimulus 2.0
 21212587
@@ -81,9 +85,11 @@ Your Perl script should wwork on `/homes/bjsco/Mguttatus_256_v2.0.fa.gz` (this f
 
 Your file should work using:
 
+```
 ./scripts/N50.pl Mguttatus_256_v2.0.fa
+```
 
-##Upload your Perl script to KSOL with the output at the bottom commented out
+##Upload your working Perl script to KSOL 
 
 ##Problem 2: Parse a GFF3 file
 
