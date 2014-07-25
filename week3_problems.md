@@ -49,6 +49,7 @@ if($var=~m/yourtext/);
 Don't forget that you can match fasta ID lines with `/^>/ or $var=~m/^>/`
 
 **creating @lengths**
+
 Finally, to get the length of a string, you can use the function `length()`;
 Note that length will return the length of a sequence INCLUDING THE \n. To remove this and other space characters, process DNA seqeunce data with the regex `s/\s//g`
 
