@@ -136,5 +136,8 @@ Average five_prime_UTR size
 
 3) When this is complete calculate the average length of each
 
+Your script shoul run with the following command:
+
+./scripts/average_gff3.pl /homes/bioinfo/class/gff3/Mguttatus_140_gene.gff3
 
 ##Upload your Perl script to KSOL with the output at the bottom commented out
