@@ -12,7 +12,7 @@ In other words, process a fasta file and count the lengths of all the lines that
 
 1) create and edit a script called ~/scripts/N50.pl
 
-2) Within N50.pl loop through your fasta file and make an array of contig lengths (@lengths) as you read in lines of the fasta. Also calculate the total length of the assembly ($total_length).
+2) loop through your fasta file and make an array of contig lengths (@lengths) as you read in lines of the fasta. Also calculate the total length of the assembly ($total_length).
 
 3) reverse sort array @lengths so that it goes from longest to shortest
 
