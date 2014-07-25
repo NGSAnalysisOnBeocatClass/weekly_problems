@@ -46,7 +46,7 @@ my $var;
 if($var=~m/yourtext/);
 ```
 
-Don't forget that you can match fasta ID lines with `/^>/ of $var=~m/^>/`
+Don't forget that you can match fasta ID lines with `/^>/ or $var=~m/^>/`
 
 **creating @lengths**
 Finally, to get the length of a string, you can use the function `length()`;
