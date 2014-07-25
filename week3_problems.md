@@ -46,12 +46,6 @@ my $var;
 if($var=~m/yourtext/);
 ```
 
-You can also match character classes by bounding the character class with `[ ]`
-
-Thus to search for DNA nucleotides, you can `$var=~m/[ATCGatcg]/`.
-
-Be careful in that this is a "greedy" match, so set up your logic so that it matches fasta ID's first, then sequence data next.
-
 Don't forget that you can match fasta ID lines with `/^>/ of $var=~m/^>/`
 
 **creating @lengths**
