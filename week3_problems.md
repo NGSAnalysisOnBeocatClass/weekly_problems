@@ -12,17 +12,15 @@ In other words, process a fasta file and count the lengths of all the lines that
 
 1) create and edit a script called ~/scripts/N50.pl
 
-2) Within N50.pl make an array of contig lengths (@lengths) as you read in lines of the fasta 
+2) Within N50.pl loop through your fasta file and make an array of contig lengths (@lengths) as you read in lines of the fasta. Also calculate the total length of the assembly ($total_length).
 
-3) calculate the total length of the assembly ($total_length)
+3) reverse sort array @lengths so that it goes from longest to shortest
 
-4) reverse sort array @lengths so that it goes from longest to shortest
+4) create a new variable $fraction and set this equal to $total_length
 
-5) create a new variable $fraction and set this equal to $total_length
+5) loop through the reverse sorted array subtracting the $current_contig_length from $fraction each time. Do this while $fraction is greater than half the total length.
 
-6) loop through the reverse sorted array subtracting the $current_contig_length from $fraction each time. Do this while $fraction is greater than half the total length.
-
-7) report $current_contig_length when the loop is finished
+6) report $current_contig_length when the loop is finished
 
 **Your base script should look something like this**
 
@@ -132,9 +130,9 @@ Average five_prime_UTR size
 
 1) Create and edit a script called ~/scripts/average_gff3.pl
 
-2) As you read in lines of the GFF3 file if the type indicates a gene, CDS, three_prime_UTR, or five_prime_UTR calculate the length of the feature and add it to an array of lengths for either gene, CDS, three_prime_UTR, or five_prime_UTR features.
+2) As you read in lines of the GFF3 file, unless the line is commented, if the type indicates a gene, CDS, three_prime_UTR, or five_prime_UTR then calculate the length of the feature and add its length to an array of lengths for either gene, CDS, three_prime_UTR, or five_prime_UTR features.
 
-3) When this is complete calculate the average length of each
+3) When this is complete calculate the average length for gene, CDS, three_prime_UTR, or five_prime_UTR features
 
 Your script shoul run with the following command:
 
