@@ -1,3 +1,67 @@
+These problems will require that you use what you have learned in class and you may have to work ahead into additional chapters, in particular REGEX to do pattern searching. Use Google+ if you have having problems.
+
+##Problem 1: Parsing fasta files
+
+Write a script that will determine the N50 of a genome assembly.
+
+The N50 is the length of the longest contig such that half the total length of the assembly is composed of contigs equal to or longer than its length.
+
+In other words, process a fasta file and count the lengths of all the lines that contain sequence data. You might want to store these into an array. Then you will need to sort the array from longest to shortest and then process each element of the array until you find the length of the contig that is greater than or equal to half the length of the total assembly.
+
+
+Your base script should look something like this
+
+```
+my $infile=$ARGV[0]; #File to open
+
+open(IN, "<$infile");
+
+while(<IN>)
+{
+	#do something
+}
+```
+
+Don't forget that regular expressions can match data by using the following constructs:
+
+If you are matching to the annonymous scalar `$_` you can match with a regular expression bound by `//`
+
+If you want to match something in a scalar variable you you use this instead: 
+
+```
+my $var;
+if($var=~m/yourtext/);
+```
+
+You can also match character classes by bounding the character class with `[ ]`
+
+Thus to search for DNA nucleotides, you can `$var=~m/[ATCGatcg]/`.
+
+Be careful in that this is a "greedy" match, so set up your logic so that it matches fasta ID's first, then sequence data next.
+
+Don't forget that you can match fasta ID lines with `/^>/ of $var=~m/^>/`
+
+Also, to sort an array you can use this code
+
+```
+my @x;
+@x=sort{$b<=>$a} @x;
+```
+
+Note that this is sorting largest to smallest
+
+You can learn more about sort here http://perlmaven.com/sorting-arrays-in-perl
+
+Finally, to get the length of a string, you can use the function `length()`;
+Note that length will return the length of a sequence INCLUDING THE \n. To remove this and other space characters, process DNA seqeunce data with the regex `s/\s//g`
+
+This will remove all whitespace and prevent length from reporting `\n` as part of the sequence length.
+
+You should get the following number, which is the N50 for Mimulus 2.0
+21212587
+
+Bonus points if you can figure out how to print the N90.
+
 ##Problem: Parse a GFF3 file
 
 One of the things that Perl programs can do is to parse text files and extract the information that your lab is interested in. This can save you time attempting to manually calculate summaries. Say for example that you have a large tab delimited text file with all annotations of your genome (GFF3 file format). You want to report the average length of features in an article describing your genome. The start and stop coordinates of each individual feature are feilds in the GFF3 format. The "type" of feature is also a feild for each individual feature.
