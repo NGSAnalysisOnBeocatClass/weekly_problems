@@ -35,14 +35,24 @@ For the last weekly programming problem we will use a hash, a regex and subrouti
 
 Create and edit a file called `broken_pair.pl`.
 
-####Step 1) Get conserved section of header
+####Subroutine 1) Get conserved section of header
 
 Write a subroutine to substitute a variable `$header_line` with everything in the header but `/1` or `/2` and the newline. Return the new `$header_line`.
 
-####Step 2) 
+####Subroutine 2) Conatenate three lines of a file with newlines
 
-Make a subroutine to create a new variable `$next_lines`. For `(1..3)` append the next line in a file to `$next_lines`. 
+Make a subroutine to create a new variable `$next_lines`. Append the next three lines in a file to `$next_lines`. 
 
-To do this you will be using the diamond operator in a new way. We have seen `$variable=<STDIN>` and `while <$fh>`
+To do this you will be using the diamond operator in a new way. We have seen `$variable=<STDIN>` and `while (<$fh>)`. Take a look at `/homes/sheltonj/solutions/diamond/diamond.pl`.
+
+Read the code in the program and run it with:
+
+```
+/homes/sheltonj/solutions/diamond/diamond.pl /homes/sheltonj/solutions/diamond/test.txt
+```
+Use what you learn to write subroutine 2.
+
+####Files) 
+
 
 
