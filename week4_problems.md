@@ -37,30 +37,58 @@ Create and edit a file called `broken_pair.pl`.
 
 ####Subroutine 1) Get conserved section of header
 
-Write a subroutine to substitute a variable `$header_line` with everything in the header but `/1` or `/2` and the newline. Return the new `$header_line`.
+-- Write a subroutine to substitute a variable `$header_line` with everything in the header but `/1` or `/2` and the newline. 
+
+-- Return the new `$header_line`.
 
 ####Subroutine 2) Conatenate three lines of a file with newlines
 
-Make a subroutine to create a new variable `$next_lines`. Append the next three lines in a file to `$next_lines`. 
+-- Make a subroutine to create a new variable `$next_lines`. Append the next three lines in a file to `$next_lines`. 
 
-To do this you will be using the diamond operator in a new way. We have seen `$variable=<STDIN>` and `while (<$fh>)`. Take a look at `/homes/sheltonj/solutions/diamond/diamond.pl`.
+-- To do this you will be using the diamond operator in a new way. We have seen `$variable=<STDIN>` and `while (<$fh>)`. Take a look at `/homes/sheltonj/solutions/diamond/diamond.pl`.
 
-Read the code in the program and run it with:
+-- Read the code in the program and run it with:
 
 ```
-/homes/sheltonj/solutions/diamond/diamond.pl /homes/sheltonj/solutions/diamond/test.txt
+  /homes/sheltonj/solutions/diamond/diamond.pl /homes/sheltonj/solutions/diamond/test.txt
 ```
-Use what you learn to write subroutine 2.
+-- Use what you learn to write subroutine 2.
 
 ####Input/Output Files)
 
-Open a forward read file and a reverse read file from the first and second argument passed to your script as read only `<`.
+-- Open a forward read file and a reverse read file from the first and second argument passed to your script as read only `<`.
 
-Create output filenames with that begin with the directory `output/` and has `_good` added to the basename using `fileparse` from the same [perl module](https://github.com/NGSAnalysisOnBeocatClass/homework/blob/master/homework_6.md#step-3-create-your-output-file) as you used in the last homework.
+-- Create output filenames with that begin with the directory `output/` and has `_good` added to the basename using `fileparse` from the same [perl module](https://github.com/NGSAnalysisOnBeocatClass/homework/blob/master/homework_6.md#step-3-create-your-output-file) as you used in the last homework.
 
-Create an output filename that begins with the directory `output/` and includes the basename of one input file, the number (`1` or `2`) of the other and `_singletons`.
+-- Create an output filename that begins with the directory `output/` and includes the basename of one input file, the number (`1` or `2`) of the other and `_singletons`.
 
-####Make an 
+####Make a hash of forward reads
+
+While there are lines in the forward read file:
+
+-- run subroutine 1.
+
+-- Make a key in the hash for the the return value.
+
+-- Make the value be the text that was removed from the header. 
+
+-- Run subroutine 2 and append the output of this to the end of value.
+
+####Make a hash of reverse reads
+
+While there are lines in the reverse read file:
+
+-- do the same things for them as you did with forward reads.
+
+-- if a key exists in both hashes print both keys and values to thier respective forward or reverse output read files and `delete` the keys and values from the hashes
+
+-- if not print the reverse key and value to the singleton output read file and `delete` the key and value from the reverse read hash
+
+####Find the forward file's singletons
+
+For any remaining key in the forward hash:
+
+-- print the forward key and value to the singleton output read file
 
 
 
