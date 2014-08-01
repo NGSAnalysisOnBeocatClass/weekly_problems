@@ -29,7 +29,7 @@ It is good practice to check pair order if someone has cleaned your reads with a
 
 If pair order is violated then you should correct the order and remove "broken pairs". Broken pairs are reads that no longer have a pair in one of the two files. These are typically moved to a file with "singletons" in the name.
 
-##Weekly problem 4 psueudo code:
+##Weekly problem 4 pseudo code:
 
 For the last weekly programming problem we will use hashes to fix fatsq files with broken pairs.
 
