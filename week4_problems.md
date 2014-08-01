@@ -31,7 +31,7 @@ If pair order is violated then you should correct the order and remove "broken p
 
 ##Weekly problem 4 pseudo code:
 
-For the last weekly programming problem we will use hashes to fix fatsq files with broken pairs.
+For the last weekly programming problem we will use hashes to fix fastq files with broken pairs.
 
 Create and edit a file called `broken_pair.pl`.
 
