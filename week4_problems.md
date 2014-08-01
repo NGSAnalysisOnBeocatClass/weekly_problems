@@ -52,7 +52,16 @@ Read the code in the program and run it with:
 ```
 Use what you learn to write subroutine 2.
 
-####Files) 
+####Input/Output Files)
+
+Open a forward read file and a reverse read file from the first and second argument passed to your script as read only `<`.
+
+Create output filenames with that begin with the directory `output/` and has `_good` added to the basename using `fileparse` from the same [perl module](https://github.com/NGSAnalysisOnBeocatClass/homework/blob/master/homework_6.md#step-3-create-your-output-file) as you used in the last homework.
+
+Create an output filename that begins with the directory `output/` and includes the basename of one input file, the number (`1` or `2`) of the other and `_singletons`.
+
+####Make an 
+
 
 
 
