@@ -90,6 +90,9 @@ For any remaining key in the forward hash:
 
 -- print the forward key and value to the singleton output read file
 
+####Your job should run with the command:
 
-
+```
+broken_pair.pl ~/class/fastq/broken_pair/broken_R1.fastq ~/class/fastq/broken_pair/broken_R2.fastq
+```
 
