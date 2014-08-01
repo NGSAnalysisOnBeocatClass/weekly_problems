@@ -41,7 +41,7 @@ Create and edit a file called `broken_pair.pl`.
 
 -- Return the new `$header_line`.
 
-####Subroutine 2) Conatenate three lines of a file with newlines
+####Subroutine 2) Conatenate three lines of a file (don't remove newlines)
 
 -- Make a subroutine to create a new variable `$next_lines`. Append the next three lines in a file to `$next_lines`. 
 
