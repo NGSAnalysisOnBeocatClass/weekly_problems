@@ -15,7 +15,7 @@ Fastq format is described well here: http://en.wikipedia.org/wiki/FASTQ_format
 
 - The second line is the read itself, for this example, they are very short reads
 
-- The third line starts generally with a `+` 
+- The third line starts generally with a `+`. Otherwise it is a second header.
 
 - The 4th line is the quality string. While beyond the scope of this exercise, the base call qualities are encoded in in ASCII characters. This line should always look like gibberish.
 
@@ -31,9 +31,18 @@ If pair order is violated then you should correct the order and remove "broken p
 
 ##Weekly problem 4 pseudo code:
 
-For the last weekly programming problem we will use hashes to fix fastq files with broken pairs.
+For the last weekly programming problem we will use a hash, a regex and subroutines to fix fastq files with broken pairs.
 
 Create and edit a file called `broken_pair.pl`.
 
-####Step 1
+####Step 1) Get conserved section of header
+
+Write a subroutine to substitute a variable `$header_line` with everything in the header but `/1` or `/2` and the newline. Return the new `$header_line`.
+
+####Step 2) 
+
+Make a subroutine to create a new variable `$next_lines`. For `(1..3)` append the next line in a file to `$next_lines`. 
+
+To do this you will be using the diamond operator in a new way. We have seen `$variable=<STDIN>` and `while <$fh>`
+
 
