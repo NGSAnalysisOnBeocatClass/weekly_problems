@@ -35,9 +35,9 @@ For the last weekly programming problem we will use a hash, a regex and subrouti
 
 Create and edit a file called `broken_pair.pl`.
 
-####Subroutine 1) Get conserved section of header
+####Subroutine 1) Get conserved portion of header
 
--- Write a subroutine to substitute a variable `$header_line` with everything in the header but `/1` or `/2` and the newline. 
+-- Write a subroutine to substitute a variable `$header_line` with everything in the header but `/1` or `/2` and the newline. Re-read Chapter 9 "Processing Text with Regular Expressions" in the Perl text if you need a refresher on substitutions or regex. You can also use http://regexpal.com/. 
 
 -- Return the new `$header_line`.
 
